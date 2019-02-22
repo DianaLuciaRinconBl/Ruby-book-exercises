@@ -1,0 +1,13 @@
+# Write two methods, one that returns the string "Hello" and one that returns
+# the string "World". Then print both strings using #puts, combining them
+# into one sentence.
+
+def hello_string
+  "Hello "
+end
+
+def world_string
+  "World"
+end
+
+puts "#{hello_string} #{world_string}"
