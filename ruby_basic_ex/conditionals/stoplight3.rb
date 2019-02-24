@@ -14,7 +14,10 @@
 stoplight = ['green', 'yellow', 'red'].sample
 
 case stoplight
-when 'green'then puts 'Go!'
+when 'green'  then puts 'Go!'
 when 'yellow' then puts 'Slow down!'
-else puts 'Stop!'
+else               puts 'Stop!'
 end
+
+# Important!!! do not use the second structure is the when clauses
+# have more than one statement.
