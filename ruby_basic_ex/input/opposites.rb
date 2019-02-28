@@ -9,28 +9,35 @@
 
 #You may use the following method to validate input integers:
 
-# def valid_number?(number_string)
-#   number_string.to_i.to_s == number_string && number_string.to_i != 0
-# end
-#
-# first_int = nil
-# second_int = nil
-#
-# loop do
-#   puts "Please enter a positive or negative integer (1): "
-#   first_int = gets.chomp.to_i
-#
-#   puts "please enter another positive or negative integer (2):"
-#   second_int = gets.chomp.to_i
-#
-#   if valid_number?(first_int) && valid_number?(second_int)
-#     break
-#   else
-#     puts "please enter another positive or negative integer (3):"
-#     second_int = gets.chomp.to_i
-#     break
-#   end
-# end
-#
-# total = first_int + second_int
-# puts "#{first_int} + #{second_int} = #{total}"
+def valid_number?(number_string)
+  number_string.to_i.to_s == number_string && number_string.to_i != 0
+end
+
+def read_number
+  loop do
+    puts '>> Please enter a positive or negative integer:'
+    number = gets.chomp
+    return number.to_i if valid_number?(number)#=> here we do not use break because
+                                              #we really want to return a value as well
+                                              #a break the loop.
+    puts '>> Invalid input. Only non-zero integers are allowed.'
+  end
+end
+
+first_number = nil
+second_number = nil
+
+loop do
+  first_number = read_number
+  second_number = read_number
+  break if first_number * second_number < 0 #=>the multiplication of 2 intergers
+                                            #will result in a negative value if and
+                                            #only if one of hhe values is negative and
+                                            #the other one posite.
+
+  puts '>> Sorry. One integer must be positive, one must be negative.'
+  puts '>> Please start over.'
+end
+
+sum = first_number + second_number
+puts "#{first_number} + #{second_number} = #{sum}"
